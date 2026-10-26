@@ -70,7 +70,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "EQUALS"
       }
     ],
-    "help": "Your Mixdive server's address, e.g. https://analytics.example.com (Settings → General shows it).",
+    "help": "Your Mixdive server's address, e.g. https://mixdive.example.com (Settings → General shows it).",
     "valueValidators": [
       {
         "type": "NON_EMPTY"
@@ -357,7 +357,7 @@ const makeTableMap = require('makeTableMap');
 const log = require('logToConsole');
 
 // The SDK build this template version drives. Bumping it is a template update.
-const SDK_URL = 'https://cdn.jsdelivr.net/npm/@mixdive/browser@0.1.0/dist/mixdive.js';
+const SDK_URL = 'https://cdn.jsdelivr.net/npm/@mixdive/browser@0.1.1/dist/mixdive.js';
 
 function enqueue(entry) {
   if (!copyFromWindow('mixdive')) {
@@ -463,7 +463,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://cdn.jsdelivr.net/npm/@mixdive/browser@0.1.0/dist/mixdive.js"
+                "string": "https://cdn.jsdelivr.net/npm/@mixdive/browser@0.1.1/dist/mixdive.js"
               }
             ]
           }
@@ -622,7 +622,7 @@ ___TESTS___
 scenarios:
 - name: Initialize loads the SDK after queueing init
   code: |-
-    const mockData = {action: 'init', serverUrl: 'https://analytics.example.com', apiKey: 'mx_test', autoPageViews: true};
+    const mockData = {action: 'init', serverUrl: 'https://mixdive.example.com', apiKey: 'mx_test', autoPageViews: true};
     let pushed = [];
     mock('copyFromWindow', () => undefined);
     mock('callInWindow', (path, entry) => { pushed.push(entry); });
@@ -633,7 +633,7 @@ scenarios:
     assertApi('gtmOnSuccess').wasCalled();
     assertThat(pushed.length).isEqualTo(1);
     assertThat(pushed[0][0]).isEqualTo('init');
-    assertThat(pushed[0][1].server).isEqualTo('https://analytics.example.com');
+    assertThat(pushed[0][1].server).isEqualTo('https://mixdive.example.com');
     assertThat(pushed[0][1].key).isEqualTo('mx_test');
 - name: Track event with properties and measures
   code: |-

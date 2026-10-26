@@ -2,7 +2,7 @@ homepage: "https://mixdive.com"
 documentation: "https://docs.mixdive.com/integrations/google-tag-manager/"
 versions:
   # Newest first. `sha` is the commit that contains the template.tpl to
-  # publish — add the first entry in a second commit, once the template's
+  # publish, so the entry is added in a second commit, once the template's
   # own commit exists.
-  # - sha: <commit sha>
-  #   changeNotes: Initial release — Initialize, Track event, Identify user, Page view.
+  - sha: REPLACE_WITH_COMMIT_SHA
+    changeNotes: Initial release. Initialize, Track event, Identify user and Page view actions, driving the Mixdive browser SDK 0.1.1.
